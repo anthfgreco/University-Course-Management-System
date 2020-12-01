@@ -1,0 +1,34 @@
+/* 9. Display all teachers that teach a computer science course (starts with CPS) OR an art course (starts with ART) */
+DROP VIEW cs_teachers;
+
+CREATE VIEW cs_teachers AS
+(SELECT ts.teacher_ID, teacher_name, course_ID
+ FROM teaching ts, teacher tr
+ WHERE course_ID LIKE 'CPS%' AND
+       ts.teacher_ID = tr.teacher_ID)
+UNION
+(SELECT ts.teacher_ID, teacher_name, course_ID
+ FROM teaching ts, teacher tr
+ WHERE course_ID LIKE 'ART%' AND
+       ts.teacher_ID = tr.teacher_ID)
+ORDER BY course_ID;
+ 
+/* 10. Display count of students, courses, teachers, departments, and assignments */
+DROP VIEW table_counts;
+
+CREATE VIEW table_counts AS
+SELECT COUNT(DISTINCT student_id) AS Number_of_Students, COUNT(DISTINCT course_id) AS Number_of_Courses, COUNT(DISTINCT teacher_id) AS Number_of_Teachers, 
+        COUNT(DISTINCT dep_ID) AS Number_of_Departments, COUNT(DISTINCT assignment_name) AS Number_of_Assignments
+ FROM student, teacher, course, department, assignment
+ WITH READ ONLY;
+ 
+/* 11. For each student, list their student ID, student name, email, and calculate the total amount of their tuition */
+DROP VIEW total_tuitions;
+
+CREATE VIEW total_tuitions AS
+SELECT s.student_id, student_name, email, SUM(item_amount) AS Total_Tuition
+FROM student s, tuition t
+WHERE s.student_id = t.student_id 
+GROUP BY s.student_id, student_name, email
+ORDER BY student_name
+WITH READ ONLY;

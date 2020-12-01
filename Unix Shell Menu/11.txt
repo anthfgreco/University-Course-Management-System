@@ -1,0 +1,4 @@
+SET LINESIZE 200
+
+/* 11. For each student, list their student ID, student name, email, and calculate the total amount of their tuition */
+SELECT * FROM total_tuitions;

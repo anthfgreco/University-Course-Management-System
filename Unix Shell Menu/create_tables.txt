@@ -1,0 +1,104 @@
+CREATE TABLE department (
+    dep_ID          VARCHAR2(10) PRIMARY KEY,
+    dep_name        VARCHAR2(30) DEFAULT 'GENERAL',
+    office_location VARCHAR2(30)
+);
+   
+CREATE TABLE teacher (
+    teacher_ID      VARCHAR2(10) PRIMARY KEY,
+    teacher_name    VARCHAR2(40) NOT NULL,
+    email           VARCHAR2(30) NOT NULL UNIQUE,
+    office_location VARCHAR2(30) DEFAULT 'HUB 101'
+);
+
+CREATE TABLE course (
+    course_ID       VARCHAR2(30) PRIMARY KEY,
+    course_name     VARCHAR2(30) NOT NULL UNIQUE,
+    course_location VARCHAR2(30),
+    office_day      VARCHAR2(10),
+    office_hours    VARCHAR2(30),
+    class_day     VARCHAR2(10),
+    class_time    VARCHAR2(30)
+);
+     
+CREATE TABLE student (
+    student_ID      VARCHAR2(10) PRIMARY KEY,
+    birth_date      DATE NOT NULL,
+    email           VARCHAR2(30) NOT NULL UNIQUE,
+    student_name    VARCHAR2(40) NOT NULL,
+    gpa             NUMBER
+);
+    
+CREATE TABLE undergraduate (
+    student_ID      VARCHAR2(10) PRIMARY KEY REFERENCES student(student_ID),
+    birth_date      DATE NOT NULL,
+    email           VARCHAR2(30) NOT NULL UNIQUE,
+    student_name       VARCHAR2(40) NOT NULL,
+    gpa             NUMBER,
+    ug_degree       VARCHAR2(30)
+);
+
+CREATE TABLE graduate (
+    student_ID      VARCHAR2(10) PRIMARY KEY REFERENCES student(student_ID),
+    birth_date      DATE NOT NULL,
+    email           VARCHAR2(30) NOT NULL UNIQUE,
+    student_name       VARCHAR2(40) NOT NULL,
+    gpa             NUMBER,
+    g_degree        VARCHAR2(30)
+);
+
+CREATE TABLE tuition (
+    student_ID      VARCHAR2(10) REFERENCES student(student_ID),
+    tuition_ID      VARCHAR2(10) PRIMARY KEY,
+    item_name       VARCHAR2(30),
+    due_date        DATE,
+    item_amount     NUMBER NOT NULL
+);
+
+CREATE TABLE owes (
+    student_ID  VARCHAR2(10) REFERENCES student(student_ID),
+    tuition_ID   VARCHAR2(30) REFERENCES tuition(tuition_ID)
+);
+
+CREATE TABLE assignment (
+    assignment_name     VARCHAR2(50) PRIMARY KEY,
+    assignment_weight   NUMBER NOT NULL,
+    assignment_due_date DATE
+);
+
+CREATE TABLE assigns (
+    course_ID       VARCHAR2(30) REFERENCES course(course_ID),
+    assignment_name VARCHAR2(50) REFERENCES assignment(assignment_name)
+);
+
+CREATE TABLE receives_mark (
+    student_ID      VARCHAR2(10) REFERENCES student(student_ID),
+    assignment_name VARCHAR2(50) REFERENCES assignment(assignment_name),
+    mark_received   NUMBER NOT NULL
+);
+
+CREATE TABLE manages (
+    dep_ID      VARCHAR2(10) REFERENCES department(dep_ID),
+    teacher_ID  VARCHAR2(10) REFERENCES teacher(teacher_ID),
+    PRIMARY KEY (dep_ID, teacher_ID)
+);
+
+CREATE TABLE offers (
+    dep_ID      VARCHAR2(10) REFERENCES department(dep_ID),
+    course_ID   VARCHAR2(30) REFERENCES course(course_ID),
+    PRIMARY KEY (dep_ID, course_ID)
+);
+
+CREATE TABLE teaching (
+    teaching_ID VARCHAR2(10) PRIMARY KEY,
+    teacher_ID  VARCHAR2(10) REFERENCES teacher(teacher_ID),
+    course_ID   VARCHAR2(30) REFERENCES course(course_ID)
+);
+
+CREATE TABLE enrollments (
+    enrollment_ID   VARCHAR2(10) PRIMARY KEY,
+    student_ID      VARCHAR2(10) REFERENCES student(student_ID),
+    course_ID       VARCHAR2(30) REFERENCES course(course_ID),
+    year            VARCHAR(10),
+    semester        CHAR(2)
+);

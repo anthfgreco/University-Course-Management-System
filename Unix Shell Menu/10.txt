@@ -1,0 +1,4 @@
+SET LINESIZE 200
+
+/* 10. Display count of students, courses, teachers, departments, and assignments */
+SELECT * FROM table_counts;

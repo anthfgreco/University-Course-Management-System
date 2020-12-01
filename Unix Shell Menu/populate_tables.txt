@@ -1,0 +1,190 @@
+INSERT INTO course VALUES ('CPS510', 'Data Structures', 'SCI 513', 'MONDAY', '10:30', 'FRIDAY', '10:00');
+INSERT INTO course VALUES ('ART101', 'Art History I', 'ART 256', 'MONDAY', '5:30', 'FRIDAY', '11:00');
+INSERT INTO course VALUES ('CPS101', 'Computer Science I', 'SCI 309', 'TUESDAY', '9:30', 'MONDAY', '12:00');
+INSERT INTO course VALUES ('LAW107', 'Intro. to Law and Order', 'LAW 341', 'TUESDAY', '11:30', 'MONDAY', '13:00');
+INSERT INTO course VALUES ('MTH101', 'Discrete Mathematics', 'ENG 146', 'WEDNESDAY', '12:30', 'TUESDAY', '15:00');
+INSERT INTO course VALUES ('CHM410', 'Advanced Chemistry', 'SCI 217', 'WEDNESDAY', '3:30', 'TUESDAY', '17:00');
+INSERT INTO course VALUES ('PHY255', 'Newtonian Physics', 'SCI 310', 'THURSDAY', '1:30', 'WEDNESDAY', '08:00');
+INSERT INTO course VALUES ('ART201', 'Art History II', 'ART 136', 'THURSDAY', '2:30', 'WEDNESDAY', '18:00');
+INSERT INTO course VALUES ('MGT810', 'Commerical Business Management', 'BUS 410', 'FRIDAY', '4:30', 'THURSDAY', '09:00');
+INSERT INTO course VALUES ('LAW204', 'Advanced Federal Law', 'LAW 305', 'FRIDAY', '2:30', 'TUESDAY', '14:00');
+
+INSERT INTO teacher VALUES ('396768763', 'Bertha Roberts', 'berthar@victoria.ca', 'SCI 493');
+INSERT INTO teaching VALUES ('12', '396768763', 'CPS510');
+INSERT INTO teaching VALUES ('15', '396768763', 'CPS101');
+INSERT INTO teacher VALUES ('375182362', 'Andrew Smith', 'andrews@victoria.ca', 'SCI 289');
+INSERT INTO teaching VALUES ('5', '375182362', 'CPS101');
+INSERT INTO teacher VALUES ('375839204', 'Arthur Brown', 'arthurb@victoria.ca', 'SCI 167');
+INSERT INTO teaching VALUES ('25', '375839204', 'PHY255');
+INSERT INTO teacher VALUES ('382043246', 'James Sullivan', 'jamess@victoria.ca', 'ART 713');
+INSERT INTO teaching VALUES ('32', '382043246', 'ART201');
+INSERT INTO teacher VALUES ('376812310', 'Susan Baker', 'susanb@victoria.ca', 'ART 736');
+INSERT INTO teaching VALUES ('45', '376812310', 'ART101');
+INSERT INTO teacher VALUES ('312314123', 'Elizabeth Andrews', 'elizabetha@victoria.ca', 'LAW 256');
+INSERT INTO teacher VALUES ('398612073', 'Sebastian Perez', 'sebastianp@victoria.ca', 'LAW 241');
+INSERT INTO teaching VALUES ('51', '398612073', 'LAW107');
+INSERT INTO teacher VALUES ('381038723', 'Beatriz Castaneda', 'beatrizc@victoria.ca', 'ENG 135');
+INSERT INTO teaching VALUES ('65', '381038723', 'MTH101');
+INSERT INTO teacher VALUES ('392837492', 'Henry Ye', 'henryy@victoria.ca', 'BUS 469');
+INSERT INTO teaching VALUES ('87', '392837492', 'MGT810');
+INSERT INTO teacher VALUES ('319763197', 'Isabel Trastamara', 'isabelt@victoria.ca', 'BUS 367');
+INSERT INTO teaching VALUES ('98', '319763197', 'LAW204');
+INSERT INTO teaching VALUES ('99', '319763197', 'PHY255');
+
+INSERT INTO student VALUES ('500903364', to_date('15/08/2000', 'dd/mm/yyyy'), 'anthg@victoria.ca', 'Anthony Greco', 3.2);
+INSERT INTO enrollments VALUES ('1', '500903364', 'CPS510', 2014, 4);
+INSERT INTO enrollments VALUES ('4', '500903364', 'ART101', 2014, 5);
+INSERT INTO enrollments VALUES ('6', '500903364', 'CPS101', 2014, 5);
+
+INSERT INTO student VALUES ('500905530', to_date('04/02/1995', 'dd/mm/yyyy'), 'serenag@victoria.ca', 'Serena Gregor', 4.3);
+INSERT INTO enrollments VALUES ('12', '500905530', 'LAW107', 2015, 2);
+INSERT INTO enrollments VALUES ('14', '500905530', 'MTH101', 2015, 2);
+INSERT INTO enrollments VALUES ('17', '500905530', 'CHM410', 2016, 3);
+
+INSERT INTO student VALUES ('500922910', to_date('11/01/2000', 'dd/mm/yyyy'), 'nicoles@victoria.ca', 'Nicole Smyth', 4.0);
+INSERT INTO enrollments VALUES ('21', '500922910', 'PHY255', 2016, 3);
+INSERT INTO enrollments VALUES ('32', '500922910', 'ART201', 2016, 3);
+INSERT INTO enrollments VALUES ('33', '500922910', 'MGT810', 2016, 3);
+
+INSERT INTO student VALUES ('500819310', to_date('11/01/2000', 'dd/mm/yyyy'), 'matthews@victoria.ca', 'Matthew Smyth', 3.0);
+INSERT INTO enrollments VALUES ('41', '500819310', 'LAW204', 2017, 1);
+INSERT INTO enrollments VALUES ('42', '500819310', 'MTH101', 2018, 1);
+INSERT INTO enrollments VALUES ('44', '500819310', 'ART201', 2018, 2);
+
+INSERT INTO student VALUES ('500998515', to_date('21/02/1998', 'dd/mm/yyyy'), 'sebasts@victoria.ca', 'Sebastian Spano', 3.5);
+INSERT INTO enrollments VALUES ('51', '500998515', 'CPS510', 2018, 3);
+INSERT INTO enrollments VALUES ('52', '500998515', 'ART201', 2019, 4);
+INSERT INTO enrollments VALUES ('55', '500998515', 'CHM410', 2019, 4);
+
+INSERT INTO tuition VALUES ('500903364', '10050521', 'Tuition UGrad', to_date('01/02/2021', 'dd/mm/yyyy'), 4289);
+INSERT INTO tuition VALUES ('500903364', '10051333', 'Coop Education', to_date('01/02/2021', 'dd/mm/yyyy'), 750);
+INSERT INTO tuition VALUES ('500903364', '10071412', 'Academic Support', to_date('01/02/2021', 'dd/mm/yyyy'), 56);
+INSERT INTO owes VALUES ('500903364', '10050521');
+INSERT INTO owes VALUES ('500903364', '10051333');
+INSERT INTO owes VALUES ('500903364', '10071412');
+
+INSERT INTO tuition VALUES ('500905530', '10050128', 'Tuition UGrad', to_date('01/02/2021', 'dd/mm/yyyy'), 4582);
+INSERT INTO tuition VALUES ('500905530', '10050129', 'Coop Education', to_date('01/02/2021', 'dd/mm/yyyy'), 750);
+INSERT INTO tuition VALUES ('500905530', '10051214', 'Academic Support', to_date('01/02/2021', 'dd/mm/yyyy'), 56);
+INSERT INTO tuition VALUES ('500905530', '10021214', 'Athletics and Recreation', to_date('01/02/2021', 'dd/mm/yyyy'), 113);
+INSERT INTO owes VALUES ('500905530', '10050128');
+INSERT INTO owes VALUES ('500905530', '10050129');
+INSERT INTO owes VALUES ('500905530', '10051214');
+INSERT INTO owes VALUES ('500905530', '10021214');
+
+INSERT INTO tuition VALUES ('500922910', '10050333', 'Tuition UGrad', to_date('01/02/2021', 'dd/mm/yyyy'), 4785);
+INSERT INTO tuition VALUES ('500922910', '10040999', 'Coop Education', to_date('01/02/2021', 'dd/mm/yyyy'), 750);
+INSERT INTO tuition VALUES ('500922910', '10014814', 'Academic Support', to_date('01/02/2021', 'dd/mm/yyyy'), 56);
+INSERT INTO tuition VALUES ('500922910', '10078113', 'Athletics and Recreation', to_date('01/02/2021', 'dd/mm/yyyy'), 113);
+INSERT INTO owes VALUES ('500922910', '10050333');
+INSERT INTO owes VALUES ('500922910', '10040999');
+INSERT INTO owes VALUES ('500922910', '10014814');
+INSERT INTO owes VALUES ('500922910', '10078113');
+
+INSERT INTO tuition VALUES ('500819310', '10059511', 'Tuition UGrad', to_date('01/02/2021', 'dd/mm/yyyy'), 4281);
+INSERT INTO tuition VALUES ('500819310', '10091601', 'Academic Support', to_date('01/02/2021', 'dd/mm/yyyy'), 56);
+INSERT INTO tuition VALUES ('500819310', '10000912', 'Athletics and Recreation', to_date('01/02/2021', 'dd/mm/yyyy'), 113);
+INSERT INTO owes VALUES ('500819310', '10059511');
+INSERT INTO owes VALUES ('500819310', '10091601');
+INSERT INTO owes VALUES ('500819310', '10000912');
+
+INSERT INTO tuition VALUES ('500998515', '10050123', 'Tuition UGrad', to_date('01/02/2021', 'dd/mm/yyyy'), 4781);
+INSERT INTO tuition VALUES ('500998515', '10050909', 'Academic Support', to_date('01/02/2021', 'dd/mm/yyyy'), 56);
+INSERT INTO tuition VALUES ('500998515', '10551121', 'Athletics and Recreation', to_date('01/02/2021', 'dd/mm/yyyy'), 113);
+INSERT INTO owes VALUES ('500998515', '10050123');
+INSERT INTO owes VALUES ('500998515', '10050909');
+INSERT INTO owes VALUES ('500998515', '10551121');
+
+INSERT INTO department VALUES ('740937523', 'Science', '137 Oak St.');
+INSERT INTO manages VALUES ('740937523', '396768763');
+INSERT INTO manages VALUES ('740937523', '375182362');
+INSERT INTO manages VALUES ('740937523', '375839204');
+INSERT INTO offers VALUES ('740937523', 'CPS510');
+INSERT INTO offers VALUES ('740937523', 'CPS101');
+INSERT INTO offers VALUES ('740937523', 'CHM410');
+INSERT INTO offers VALUES ('740937523', 'PHY255');
+
+INSERT INTO department VALUES ('724792732', 'Arts', '213 Willow St.');
+INSERT INTO manages VALUES ('724792732', '382043246');
+INSERT INTO manages VALUES ('724792732', '376812310');
+INSERT INTO offers VALUES ('724792732', 'ART101');
+INSERT INTO offers VALUES ('724792732', 'ART201');
+
+INSERT INTO department VALUES ('762898632', 'Law', '209 James St.');
+INSERT INTO manages VALUES ('762898632', '312314123');
+INSERT INTO manages VALUES ('762898632', '398612073');
+INSERT INTO offers VALUES ('762898632', 'LAW107');
+INSERT INTO offers VALUES ('762898632', 'LAW204');
+
+INSERT INTO department VALUES ('712387621', 'Engineering', '496 Queen St.');
+INSERT INTO manages VALUES ('712387621', '381038723');
+INSERT INTO offers VALUES ('712387621', 'MTH101');
+
+INSERT INTO department VALUES ('792897236', 'Business', '507 Elizabeth St.');
+INSERT INTO manages VALUES ('792897236', '392837492');
+INSERT INTO manages VALUES ('792897236', '319763197');
+INSERT INTO offers VALUES ('792897236', 'MGT810');
+
+INSERT INTO assignment VALUES ('Animated Robot Assignment', 25, to_date('01/11/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('CPS510', 'Animated Robot Assignment');
+INSERT INTO receives_mark VALUES (500903364, 'Animated Robot Assignment', 90);
+INSERT INTO receives_mark VALUES (500998515, 'Animated Robot Assignment', 81);
+
+INSERT INTO assignment VALUES ('Virtual Reality Custom Shader', 10, to_date('05/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('CPS510', 'Virtual Reality Custom Shader');
+INSERT INTO receives_mark VALUES (500903364, 'Virtual Reality Custom Shader', 83);
+INSERT INTO receives_mark VALUES (500998515, 'Virtual Reality Custom Shader', 76);
+
+INSERT INTO assignment VALUES ('Northern Lights Painting', 20, to_date('05/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('ART101', 'Northern Lights Painting');
+INSERT INTO receives_mark VALUES (500903364, 'Northern Lights Painting', 79);
+
+INSERT INTO assignment VALUES ('Binary Tree Algorithm', 10, to_date('18/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('CPS101', 'Binary Tree Algorithm');
+INSERT INTO receives_mark VALUES (500903364, 'Binary Tree Algorithm', 95);
+
+INSERT INTO assignment VALUES ('Depth First Search Algorithm', 5, to_date('18/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('CPS101', 'Depth First Search Algorithm');
+INSERT INTO receives_mark VALUES (500903364, 'Depth First Search Algorithm', 98);
+
+INSERT INTO assignment VALUES ('Analysis of the Canadian Federal Government', 30, to_date('12/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('LAW107', 'Analysis of the Canadian Federal Government');
+INSERT INTO receives_mark VALUES (500905530, 'Analysis of the Canadian Federal Government', 88);
+
+INSERT INTO assignment VALUES ('Integral Quiz', 5, to_date('26/11/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('MTH101', 'Integral Quiz');
+INSERT INTO receives_mark VALUES (500905530, 'Integral Quiz', 76);
+INSERT INTO receives_mark VALUES (500819310, 'Integral Quiz', 81);
+
+INSERT INTO assignment VALUES ('Derivative Assignment', 15, to_date('20/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('MTH101', 'Derivative Assignment');
+INSERT INTO receives_mark VALUES (500905530, 'Derivative Assignment', 85);
+INSERT INTO receives_mark VALUES (500819310, 'Derivative Assignment', 87);
+
+INSERT INTO assignment VALUES ('Oxygen Molecule Analysis', 18, to_date('20/11/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('CHM410', 'Oxygen Molecule Analysis');
+INSERT INTO receives_mark VALUES (500905530, 'Oxygen Molecule Analysis', 93);
+INSERT INTO receives_mark VALUES (500998515, 'Oxygen Molecule Analysis', 68);
+
+INSERT INTO assignment VALUES ('Light Physics Around Black Hole', 40, to_date('27/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('PHY255', 'Light Physics Around Black Hole');
+INSERT INTO receives_mark VALUES (500922910, 'Light Physics Around Black Hole', 76);
+
+INSERT INTO assignment VALUES ('Picasso Analysis Essay', 35, to_date('26/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('ART201', 'Picasso Analysis Essay');
+INSERT INTO receives_mark VALUES (500922910, 'Picasso Analysis Essay', 97);
+INSERT INTO receives_mark VALUES (500819310, 'Picasso Analysis Essay', 93);
+INSERT INTO receives_mark VALUES (500998515, 'Picasso Analysis Essay', 87);
+INSERT INTO assignment VALUES ('Color and Emotion Project', 12, to_date('15/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('ART201', 'Color and Emotion Project');
+INSERT INTO receives_mark VALUES (500922910, 'Color and Emotion Project', 93);
+INSERT INTO receives_mark VALUES (500819310, 'Color and Emotion Project', 75);
+INSERT INTO receives_mark VALUES (500998515, 'Color and Emotion Project', 83);
+
+INSERT INTO assignment VALUES ('Business Organizational Essay', 15, to_date('11/11/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('MGT810', 'Business Organizational Essay');
+INSERT INTO receives_mark VALUES (500922910, 'Business Organizational Essay', 65);
+
+INSERT INTO assignment VALUES ('Ethics of Drug Decriminalization', 40, to_date('25/12/2020', 'dd/mm/yyyy'));
+INSERT INTO assigns VALUES ('LAW204', 'Ethics of Drug Decriminalization');
+INSERT INTO receives_mark VALUES (500819310, 'Ethics of Drug Decriminalization', 74);

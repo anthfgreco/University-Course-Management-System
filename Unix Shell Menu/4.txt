@@ -1,0 +1,8 @@
+/* 4. For each course, list the course ID, course name, number of students in the course, and the number of teachers in the course */
+SELECT e.course_id, c.course_name, COUNT(DISTINCT e.student_id) AS Number_of_Students, COUNT(DISTINCT t.teacher_id) AS Number_of_Teachers
+FROM enrollments e, teaching t, course c
+WHERE e.course_id = t.course_id
+      AND e.course_id = c.course_id
+      AND t.course_id = c.course_id
+GROUP BY e.course_id, c.course_name
+ORDER BY c.course_name;

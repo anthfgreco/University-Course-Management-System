@@ -1,0 +1,5 @@
+/* 1. List all the students that qualify for the Deans List */
+SELECT student_name AS Deans_List, gpa
+FROM student
+WHERE gpa >= 3.8
+ORDER BY gpa;

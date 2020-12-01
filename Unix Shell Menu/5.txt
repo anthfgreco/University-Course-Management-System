@@ -1,0 +1,7 @@
+SET LINESIZE 200
+/* 5. List the average mark, minimum mark, and maximum mark for each assignment in ART201 */
+SELECT a.assignment_name, AVG(mark_received) AS Average_Mark, MIN(mark_received) AS Lowest_Mark, MAX(mark_received) AS Highest_Mark
+FROM assigns a, receives_mark r
+WHERE course_id = 'ART201'
+      AND a.assignment_name = r.assignment_name
+GROUP BY a.assignment_name; 

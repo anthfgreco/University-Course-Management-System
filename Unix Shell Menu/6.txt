@@ -1,0 +1,8 @@
+SET LINESIZE 200
+/* 6. For each course, list the course ID and course name, and list all the assignments in that course and list the average mark, minimum mark, and maximum mark for each assignment */
+SELECT a.course_id, course_name, a.assignment_name, AVG(mark_received) AS Average_Mark, MIN(mark_received) AS Lowest_Mark, MAX(mark_received) AS Highest_Mark
+FROM assigns a, course c, receives_mark r
+WHERE a.course_id = c.course_id
+      AND a.assignment_name = r.assignment_name 
+GROUP BY a.course_id, course_name, a.assignment_name
+ORDER BY course_name;

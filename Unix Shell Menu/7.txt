@@ -1,0 +1,9 @@
+SET LINESIZE 200
+
+/* 7. List all the teacher ID's, teacher names, teacher emails, and list all the classes they teach and the number of students in those classes */
+SELECT tr.teacher_id, tr.teacher_name, tr.email, ts.course_id, COUNT(DISTINCT e.student_id) AS Number_of_Students
+FROM teacher tr, teaching ts, enrollments e
+WHERE tr.teacher_id = ts.teacher_id 
+      AND ts.course_id = e.course_id 
+GROUP BY tr.teacher_id, tr.teacher_name, tr.email, ts.course_id
+ORDER BY tr.teacher_name;

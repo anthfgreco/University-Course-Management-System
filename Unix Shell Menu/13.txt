@@ -1,0 +1,6 @@
+SET LINESIZE 200
+
+/* 13. List all teachers that are not from the science department */
+SELECT teacher_id, teacher_name, email, office_location FROM teacher
+MINUS
+(SELECT m.teacher_id, t.teacher_name, t.email, t.office_location FROM manages m, teacher t WHERE dep_id = '740937523');

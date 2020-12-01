@@ -1,0 +1,3 @@
+DROP VIEW cs_teachers;
+DROP VIEW table_counts;
+DROP VIEW total_tuitions;

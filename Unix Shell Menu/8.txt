@@ -1,0 +1,10 @@
+SET LINESIZE 200
+
+/* 8. For every department, list the department id, department name, office location, number of teachers, number of courses, and number of students in each department */
+SELECT d.dep_id, dep_name, office_location, COUNT(DISTINCT teacher_id) AS Number_of_Teachers, COUNT(DISTINCT o.course_id) AS Number_of_Courses, COUNT(DISTINCT e.student_id) AS Number_of_Students
+FROM department d, manages m, offers o, enrollments e
+WHERE d.dep_id = m.dep_id
+      AND d.dep_id = o.dep_id
+      AND o.course_id = e.course_id
+GROUP BY d.dep_id, dep_name, office_location
+ORDER BY dep_name;

@@ -1,0 +1,8 @@
+SET LINESIZE 200
+
+/* 12. Displays all teachers that are teaching a course, alongside the course that they are teaching. */
+SELECT Teacher.teacher_name, Course.course_name
+FROM ((teaching
+JOIN Teacher ON teaching.teacher_id = Teacher.teacher_id)
+JOIN Course ON teaching.course_id = Course.course_id)
+ORDER BY Teacher.teacher_name;

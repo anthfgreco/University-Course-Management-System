@@ -1,0 +1,3 @@
+/* 3. Show the average GPA of all students */
+SELECT 'The average GPA of all students is: ' AS Average_GPA, AVG(gpa) AS GPA
+FROM student;

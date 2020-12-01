@@ -1,0 +1,70 @@
+/* 1. List all the students that qualify for the Deans List */
+SELECT student_name AS Deans_List, gpa
+FROM student
+WHERE gpa >= 3.8
+ORDER BY gpa;
+
+/* 2. List all the students (student name and student ID) that are enrolled in ART201 */
+SELECT student_name AS ART201_Students, s.student_id
+FROM student s, enrollments e
+WHERE course_id = 'ART201'
+      AND s.student_id = e.student_id
+ORDER BY student_name;
+      
+/* 3. Show the average GPA of all students */
+SELECT 'The average GPA of all students is: ' AS Average_GPA, AVG(gpa) AS GPA
+FROM student;
+
+/* 4. For each course, list the course ID, course name, number of students in the course, and the number of teachers in the course */
+SELECT e.course_id, c.course_name, COUNT(DISTINCT e.student_id) AS Number_of_Students, COUNT(DISTINCT t.teacher_id) AS Number_of_Teachers
+FROM enrollments e, teaching t, course c
+WHERE e.course_id = t.course_id
+      AND e.course_id = c.course_id
+      AND t.course_id = c.course_id
+GROUP BY e.course_id, c.course_name
+ORDER BY c.course_name;
+
+/* 5. List the average mark, minimum mark, and maximum mark for each assignment in ART201 */
+SELECT a.assignment_name, AVG(mark_received) AS Average_Mark, MIN(mark_received) AS Lowest_Mark, MAX(mark_received) AS Highest_Mark
+FROM assigns a, receives_mark r
+WHERE course_id = 'ART201'
+      AND a.assignment_name = r.assignment_name
+GROUP BY a.assignment_name; 
+
+/* 6. For each course, list the course ID and course name, and list all the assignments in that course and list the average mark, minimum mark, and maximum mark for each assignment */
+SELECT a.course_id, course_name, a.assignment_name, AVG(mark_received) AS Average_Mark, MIN(mark_received) AS Lowest_Mark, MAX(mark_received) AS Highest_Mark
+FROM assigns a, course c, receives_mark r
+WHERE a.course_id = c.course_id
+      AND a.assignment_name = r.assignment_name 
+GROUP BY a.course_id, course_name, a.assignment_name
+ORDER BY course_name;
+
+/* 7. List all the teacher ID's, teacher names, teacher emails, and list all the classes they teach and the number of students in those classes */
+SELECT tr.teacher_id, tr.teacher_name, tr.email, ts.course_id, COUNT(DISTINCT e.student_id) AS Number_of_Students
+FROM teacher tr, teaching ts, enrollments e
+WHERE tr.teacher_id = ts.teacher_id 
+      AND ts.course_id = e.course_id 
+GROUP BY tr.teacher_id, tr.teacher_name, tr.email, ts.course_id
+ORDER BY tr.teacher_name;
+
+/* 8. For every department, list the department id, department name, office location, number of teachers, number of courses, and number of students in each department */
+SELECT d.dep_id, dep_name, office_location, COUNT(DISTINCT teacher_id) AS Number_of_Teachers, COUNT(DISTINCT o.course_id) AS Number_of_Courses, COUNT(DISTINCT e.student_id) AS Number_of_Students
+FROM department d, manages m, offers o, enrollments e
+WHERE d.dep_id = m.dep_id
+      AND d.dep_id = o.dep_id
+      AND o.course_id = e.course_id
+GROUP BY d.dep_id, dep_name, office_location
+ORDER BY dep_name;
+
+/* 12. Displays all teachers that are teaching a course, alongside the course that they are teaching. */
+SELECT Teacher.teacher_name, Course.course_name
+FROM ((teaching
+JOIN Teacher ON teaching.teacher_id = Teacher.teacher_id)
+JOIN Course ON teaching.course_id = Course.course_id)
+ORDER BY Teacher.teacher_name;
+
+/* 13. List all teachers that are not from the science department */
+SELECT teacher_id, teacher_name, email, office_location FROM teacher
+MINUS
+(SELECT m.teacher_id, t.teacher_name, t.email, t.office_location FROM manages m, teacher t WHERE dep_id = '740937523');
+

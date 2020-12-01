@@ -1,0 +1,4 @@
+SET LINESIZE 200
+
+/* 9. Display all teachers that teach a computer science course (starts with CPS) OR an art course (starts with ART) */
+SELECT * FROM cs_teachers;
